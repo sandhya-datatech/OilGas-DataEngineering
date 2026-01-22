@@ -1,0 +1,27 @@
+name: Sync from Azure DevOps
+
+# Trigger manually or automatically daily
+on:
+  workflow_dispatch:      # lets you run it manually
+  schedule:
+    - cron: '0 0 * * *'  # optional: daily sync at midnight UTC
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout GitHub repo
+        uses: actions/checkout@v3
+
+      - name: Clone Azure DevOps repo
+        env:
+          AZURE_PAT: ${{ secrets.AZURE_DEVOPSPAT }}
+        run: |
+          git clone https://$AZURE_PAT@dev.azure.com/fabric0316/OilandGas/_git/OilGas-DataEngineering azure-repo
+
+      - name: Push to GitHub
+        run: |
+          cd azure-repo
+          git remote add github https://github.com/sandhya-datatech/OilGas-DataEngineering.git
+          git push github main --force
