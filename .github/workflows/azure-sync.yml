@@ -16,7 +16,7 @@ jobs:
 
       - name: Clone Azure DevOps repo
         env:
-          AZURE_PAT: ${{ secrets.AZURE_DEVOPSPAT }}
+          AZURE_PAT: ${{ secrets.AZURE_DEVOPS_PAT }}
         run: |
           git clone https://$AZURE_PAT@dev.azure.com/fabric0316/OilandGas/_git/OilGas-DataEngineering azure-repo
 
