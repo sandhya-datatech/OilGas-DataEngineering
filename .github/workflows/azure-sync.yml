@@ -1,10 +1,7 @@
 name: Sync from Azure DevOps
 
-# Trigger manually or automatically daily
 on:
-  workflow_dispatch:      # manual trigger
-  schedule:
-    - cron: '0 0 * * *'  # optional: daily at midnight UTC
+  workflow_dispatch:
 
 jobs:
   sync:
