@@ -16,7 +16,7 @@ jobs:
 
       - name: Clone Azure DevOps repo
         run: |
-          git clone https://anything:${{ secrets.AZURE_DEVOPS_PAT }}@dev.azure.com/fabric0316/OilandGas/_git/OilGas-DataEngineering azure-repo
+          git clone https://fabric0316:${{ secrets.AZURE_DEVOPS_PAT }}@dev.azure.com/fabric0316/OilandGas/_git/OilGas-DataEngineering azure-repo
 
       - name: Push to GitHub
         run: |
