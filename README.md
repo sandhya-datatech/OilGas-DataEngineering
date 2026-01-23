@@ -14,17 +14,12 @@ End-to-end data engineering project simulating an oil & gas analytics platform. 
 3) Delivered executive-ready Power BI dashboards
 
 **Basic Architecture of the project**
-Source (CSV) 
-   ↓
-Bronze Layer (Raw Delta Tables in MS Fabric)
-   ↓
-Data Quality & Validation (Great Expectations)
-   ↓
-Silver Layer (Cleaned + Business Logic Applied)
-   ↓
-Gold Layer (Aggregated, Reporting-Ready Tables)
-   ↓
-Power BI (Executive Dashboards & KPIs)
+1) Source (CSV) 
+2) Bronze Layer (Raw Delta Tables in MS Fabric)
+3) Data Quality & Validation (Great Expectations)
+4) Silver Layer (Cleaned + Business Logic Applied)
+5) Gold Layer (Aggregated, Reporting-Ready Tables)
+6) Power BI (Executive Dashboards & KPIs)
 
 **Tech Stack**
 Lakehouse & ETL: Microsoft Fabric
