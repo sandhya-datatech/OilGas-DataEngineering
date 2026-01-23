@@ -1,11 +1,34 @@
 # OilGas-DataEngineering
 
+**Project Overview**
+End-to-end data engineering project simulating an oil & gas analytics platform. Transforms raw production, pricing, and operational data into curated, business-ready insights with Power BI dashboards.
+
 **Business problem**
-Oil & gas companies receive production, pricing, and operational data from multiple sources
-Data quality issues (nulls, wrong dates, inconsistent units) lead to poor reporting
-Business needs trusted, curated metrics for leadership decisions
+1) Oil & gas companies receive production, pricing, and operational data from multiple sources
+2) Data quality issues (nulls, inconsistent dates, inconsistent units) lead to poor reporting
+3) Business needs trusted, curated metrics for leadership decisions
 
 **Outcome**
-Built a medallion architecture in Microsoft Fabric
-Automated validation, transformation, and reporting
-Delivered executive-ready Power BI dashboards
+1) Built a medallion architecture in Microsoft Fabric
+2) Automated validation, transformation, and reporting
+3) Delivered executive-ready Power BI dashboards
+
+**Basic Architecture of the project**
+Source (CSV) 
+   ↓
+Bronze Layer (Raw Delta Tables in MS Fabric)
+   ↓
+Data Quality & Validation (Great Expectations)
+   ↓
+Silver Layer (Cleaned + Business Logic Applied)
+   ↓
+Gold Layer (Aggregated, Reporting-Ready Tables)
+   ↓
+Power BI (Executive Dashboards & KPIs)
+
+**Tech Stack**
+Lakehouse & ETL: Microsoft Fabric
+Data Format: Delta Tables
+Data Quality: Great Expectations
+Reporting: Power BI
+CI/CD & Version Control: Azure DevOps + GitHub
