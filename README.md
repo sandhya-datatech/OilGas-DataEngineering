@@ -1,2 +1,11 @@
 # OilGas-DataEngineering
-End-to-end data engineering pipeline for an Oil &amp; Gas use case built on Microsoft Fabric. Uses Medallion Architecture (Bronze, Silver, Gold), Great Expectations for data quality validation, business transformations, and Power BI dashboards for analytics.
+
+**Business problem**
+Oil & gas companies receive production, pricing, and operational data from multiple sources
+Data quality issues (nulls, wrong dates, inconsistent units) lead to poor reporting
+Business needs trusted, curated metrics for leadership decisions
+
+**Outcome**
+Built a medallion architecture in Microsoft Fabric
+Automated validation, transformation, and reporting
+Delivered executive-ready Power BI dashboards
