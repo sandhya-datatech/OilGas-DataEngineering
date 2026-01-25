@@ -1,4 +1,4 @@
-# OilGas-DataEngineering
+# Oil & Gas-DataEngineering
 
 **Project Overview**
 End-to-end data engineering project simulating an oil & gas analytics platform. Transforms raw production, pricing, and operational data into curated, business-ready insights with Power BI dashboards.
