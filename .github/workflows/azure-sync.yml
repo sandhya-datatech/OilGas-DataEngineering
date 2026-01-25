@@ -1,5 +1,8 @@
-
 name: Sync Azure DevOps Repo to GitHub
+
+# Allow the job to push using GITHUB_TOKEN
+permissions:
+  contents: write
 
 on:
   workflow_dispatch:
@@ -9,22 +12,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout GitHub repo
+      - name: Checkout (for workspace)
         uses: actions/checkout@v3
 
-      - name: Clone Azure DevOps Repo
+      - name: Ensure git installed
+        run: sudo apt-get update && sudo apt-get install -y git
+
+      - name: Clone Azure DevOps repo (using AZURE_DEVOPS_PAT)
         run: |
           echo "Cloning Azure DevOps repo..."
-          git clone https://fabric0316:${{ secrets.AZURE_DEVOPS_PAT }}@dev.azure.com/fabric0316/OilandGas/_git/OilGas-DataEngineering azure-devops
+          # Use PAT in URL to authenticate clone
+          git clone --mirror "https://fabric0316:${{ secrets.AZURE_DEVOPS_PAT }}@dev.azure.com/fabric0316/OilandGas/_git/OilGas-DataEngineering" azure-devops.git
 
-      - name: Push to GitHub
+      - name: Push to GitHub (authenticated with GITHUB_TOKEN)
+        env:
+          GITHUB_REPO: sandhya-datatech/OilGas-DataEngineering
+          GITHUB_PUSH_URL: https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/sandhya-datatech/OilGas-DataEngineering.git
         run: |
-          cd azure-devops
-          git checkout main || git checkout master
-
-          git remote add github https://github.com/sandhya-datatech/OilGas-DataEngineering.git
-
-          git push github --all --force
-          git push github --tags --force
-
+          cd azure-devops.git
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+          git remote add github "${GITHUB_PUSH_URL}"
+          # Mirror push to preserve all refs (branches/tags). CAUTION: will overwrite remote refs.
+          git push github --mirror
           echo "Done!"
