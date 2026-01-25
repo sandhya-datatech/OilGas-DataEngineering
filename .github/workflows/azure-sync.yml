@@ -20,11 +20,11 @@ jobs:
       - name: Push to GitHub
         run: |
           cd azure-devops
+          git checkout main || git checkout master
 
-          echo "Checking out main branch..."
-          git checkout main || {
-            echo "main branch not found!"
-            exit 1
-          }
+          git remote add github https://github.com/sandhya-datatech/OilGas-DataEngineering.git
 
-          echo "Adding Git
+          git push github --all --force
+          git push github --tags --force
+
+          echo "Done!"
