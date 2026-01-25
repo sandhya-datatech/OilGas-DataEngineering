@@ -1,38 +1,136 @@
+# Sync Azure DevOps repository to this GitHub repository
+# - Uses AZURE_DEVOPS_PAT (required) to authenticate to dev.azure.com
+# - Uses the built-in GITHUB_TOKEN by default to push to GitHub (or GITHUB_PAT secret if you prefer)
+# Notes:
+# - Set repository secret AZURE_DEVOPS_PAT to a PAT with Code (Read) scope for Azure DevOps.
+# - If you want to use a GitHub PAT instead of GITHUB_TOKEN, create secret GITHUB_PAT and it will be used.
+# - Mirror push will overwrite remote refs to match the Azure DevOps source. Protected branches may block this.
 name: Sync Azure DevOps Repo to GitHub
 
-# Allow the job to push using GITHUB_TOKEN
 permissions:
   contents: write
 
+concurrency:
+  group: azure-sync
+  cancel-in-progress: false
+
 on:
   workflow_dispatch:
+    inputs:
+      push_mode:
+        description: 'push_mode: mirror (default) or branches (selective)'
+        required: false
+        default: 'mirror'
+      branches:
+        description: 'Comma-separated branches to push (only used when push_mode=branches)'
+        required: false
+        default: 'main'
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+    env:
+      AZDO_ORG: dev.azure.com
+      AZDO_ORG_NAME: fabric0316
+      AZDO_REPO_PATH: OilandGas/_git/OilGas-DataEngineering
+      AZDO_CLONE_URL: https://dev.azure.com/fabric0316/OilandGas/_git/OilGas-DataEngineering
+      GITHUB_REPOSITORY: ${{ github.repository }}
 
     steps:
-      - name: Checkout (for workspace)
+      - name: Checkout (workspace)
         uses: actions/checkout@v3
 
-      - name: Ensure git installed
-        run: sudo apt-get update && sudo apt-get install -y git
-
-      - name: Clone Azure DevOps repo (using AZURE_DEVOPS_PAT)
-        run: |
-          echo "Cloning Azure DevOps repo..."
-          # Use PAT in URL to authenticate clone
-          git clone --mirror "https://fabric0316:${{ secrets.AZURE_DEVOPS_PAT }}@dev.azure.com/fabric0316/OilandGas/_git/OilGas-DataEngineering" azure-devops.git
-
-      - name: Push to GitHub (authenticated with GITHUB_TOKEN)
+      - name: Validate secrets and prepare .netrc for Azure DevOps
         env:
-          GITHUB_REPO: sandhya-datatech/OilGas-DataEngineering
-          GITHUB_PUSH_URL: https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/sandhya-datatech/OilGas-DataEngineering.git
+          AZURE_USER: fabric0316
+          AZURE_PAT: ${{ secrets.AZURE_DEVOPS_PAT }}
         run: |
+          set -euo pipefail
+          if [ -z "${AZURE_PAT:-}" ]; then
+            echo "ERROR: AZURE_DEVOPS_PAT secret is not set" >&2
+            exit 1
+          fi
+          # Create .netrc for dev.azure.com so git can authenticate without embedding token in URL
+          cat > ~/.netrc <<EOF
+machine dev.azure.com
+login ${AZURE_USER}
+password ${AZURE_PAT}
+EOF
+          chmod 600 ~/.netrc
+          echo ".netrc written (hidden)."
+
+      - name: Install git (ensure available)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git
+
+      - name: Verify Azure DevOps access (quick)
+        run: |
+          set -euo pipefail
+          echo "Verifying access to Azure DevOps with git ls-remote..."
+          git ls-remote "${AZDO_CLONE_URL}" -q
+          echo "ls-remote succeeded."
+
+      - name: Mirror-clone Azure DevOps repository
+        run: |
+          set -euo pipefail
+          rm -rf azure-devops.git
+          echo "Cloning (mirror) ${AZDO_CLONE_URL} ..."
+          git clone --mirror "${AZDO_CLONE_URL}" azure-devops.git
+          echo "Clone complete. Size:"
+          du -sh azure-devops.git || true
+
+      - name: Configure GitHub auth token (use GITHUB_PAT if set, otherwise GITHUB_TOKEN)
+        env:
+          GITHUB_TOKEN_ENV: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_PAT_ENV: ${{ secrets.GITHUB_PAT }}
+        run: |
+          set -euo pipefail
+          # Choose token: prefer GITHUB_PAT if provided
+          if [ -n "${GITHUB_PAT_ENV:-}" ]; then
+            TOKEN="${GITHUB_PAT_ENV}"
+            echo "Using GITHUB_PAT secret for push authentication."
+          else
+            TOKEN="${GITHUB_TOKEN_ENV}"
+            echo "Using built-in GITHUB_TOKEN for push authentication."
+          fi
+          # Export a URL safe for git remote (x-access-token username)
+          echo "GITHUB_PUSH_URL=https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" >> $GITHUB_ENV
+
+      - name: Push to GitHub (mirror or selective)
+        run: |
+          set -euo pipefail
           cd azure-devops.git
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
+
+          echo "Adding github remote using token-authenticated URL..."
+          git remote remove github || true
           git remote add github "${GITHUB_PUSH_URL}"
-          # Mirror push to preserve all refs (branches/tags). CAUTION: will overwrite remote refs.
-          git push github --mirror
-          echo "Done!"
+
+          if [ "${{ github.event.inputs.push_mode || 'mirror' }}" = "branches" ]; then
+            echo "Selective push mode: pushing branches specified in input"
+            BRANCHES="${{ github.event.inputs.branches || 'main' }}"
+            IFS=',' read -r -a arr <<< "$BRANCHES"
+            for b in "${arr[@]}"; do
+              b_trimmed="$(echo "$b" | xargs)"
+              echo "Pushing branch: refs/heads/${b_trimmed}"
+              # Create refspec to push branch (force only if necessary)
+              git push github "refs/heads/${b_trimmed}:refs/heads/${b_trimmed}" --no-verify
+            done
+          else
+            echo "Mirror push mode: pushing all refs (branches & tags) to GitHub. This will make GitHub match Azure DevOps exactly."
+            # --mirror will update/delete refs on the remote to exactly match the local mirror
+            git push github --mirror --no-verify
+          fi
+          echo "Push to GitHub finished."
+
+      - name: Cleanup .netrc
+        if: always()
+        run: |
+          set -euo pipefail
+          rm -f ~/.netrc || true
+          echo ".netrc removed."
+
+      - name: Done
+        run: echo "Sync job completed."
