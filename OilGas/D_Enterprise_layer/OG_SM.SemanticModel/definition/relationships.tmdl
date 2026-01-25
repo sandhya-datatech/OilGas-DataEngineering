@@ -1,0 +1,16 @@
+relationship 5f0af1cc-f4eb-0055-cd39-00fdb53dcf69
+	fromColumn: fct_monthly_production.Well_ID
+	toColumn: dim_well_current.Well_ID
+
+relationship 9ec02b85-6e6b-02d6-396d-50cb81a8d5a0
+	fromColumn: fct_monthly_costs.Well_ID
+	toColumn: dim_well_current.Well_ID
+
+relationship 46da5fb6-d5e0-092e-934a-978e0bd30ee1
+	fromColumn: fct_monthly_well_performance.Well_ID
+	toColumn: dim_well_current.Well_ID
+
+relationship 74ba4d7c-57c3-f7d0-87df-0a87963a3e2e
+	fromColumn: dim_equipment_current.Well_ID
+	toColumn: dim_well_current.Well_ID
+

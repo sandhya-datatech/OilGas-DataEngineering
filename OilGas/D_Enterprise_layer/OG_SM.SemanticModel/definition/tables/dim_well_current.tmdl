@@ -1,0 +1,410 @@
+table dim_well_current
+	lineageTag: 2a163ee6-1951-4be8-b07a-85ae0f4cf60c
+	sourceLineageTag: [dbo].[dim_well_current]
+
+	column Well_ID
+		dataType: string
+		lineageTag: 030f7478-c245-4e2e-a08c-3e4c3bb70b1a
+		sourceLineageTag: Well_ID
+		summarizeBy: none
+		sourceColumn: Well_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Well_Name
+		dataType: string
+		lineageTag: 18fc93ac-b31a-4fff-a2da-c52de47fff0f
+		sourceLineageTag: Well_Name
+		summarizeBy: none
+		sourceColumn: Well_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column API_Number
+		dataType: string
+		lineageTag: e9de95cf-8a69-4d25-8635-25b072c95b4f
+		sourceLineageTag: API_Number
+		summarizeBy: none
+		sourceColumn: API_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Operator
+		dataType: string
+		lineageTag: 065c6bc8-c04f-4fed-aea6-cbb07dabafff
+		sourceLineageTag: Operator
+		summarizeBy: none
+		sourceColumn: Operator
+
+		annotation SummarizationSetBy = Automatic
+
+	column Basin
+		dataType: string
+		lineageTag: 28a9d122-ca31-4fb0-9d4f-c6acaddc86f3
+		sourceLineageTag: Basin
+		summarizeBy: none
+		sourceColumn: Basin
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		dataType: string
+		lineageTag: 0c6bf5f0-9fa1-446f-8784-14c358c42acd
+		sourceLineageTag: State
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column County
+		dataType: string
+		lineageTag: 4effce7d-46dc-4721-a186-24a002d0e715
+		sourceLineageTag: County
+		summarizeBy: none
+		sourceColumn: County
+
+		annotation SummarizationSetBy = Automatic
+
+	column Latitude
+		dataType: double
+		lineageTag: a2dc74cc-7036-4f7f-8bfa-4edb06be79d4
+		sourceLineageTag: Latitude
+		summarizeBy: sum
+		sourceColumn: Latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Longitude
+		dataType: double
+		lineageTag: 7380a9c6-9017-4cc2-8fb8-1b48a79bada9
+		sourceLineageTag: Longitude
+		summarizeBy: sum
+		sourceColumn: Longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Well_Type
+		dataType: string
+		lineageTag: 609c94c9-2016-438e-93dd-2ca5a2d42b9a
+		sourceLineageTag: Well_Type
+		summarizeBy: none
+		sourceColumn: Well_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Total_Depth_Feet
+		dataType: int64
+		formatString: 0
+		lineageTag: 9ec2702f-49e0-4e2c-9f40-92290e6f25f5
+		sourceLineageTag: Total_Depth_Feet
+		summarizeBy: sum
+		sourceColumn: Total_Depth_Feet
+
+		annotation SummarizationSetBy = Automatic
+
+	column Lateral_Length_Feet
+		dataType: int64
+		formatString: 0
+		lineageTag: a8ee960b-2305-4b64-951a-ff152935bbe0
+		sourceLineageTag: Lateral_Length_Feet
+		summarizeBy: sum
+		sourceColumn: Lateral_Length_Feet
+
+		annotation SummarizationSetBy = Automatic
+
+	column Spud_Date
+		dataType: string
+		lineageTag: 926e97c0-607e-4bf6-80da-4bbdcc1313b0
+		sourceLineageTag: Spud_Date
+		summarizeBy: none
+		sourceColumn: Spud_Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column First_Production_Date
+		dataType: string
+		lineageTag: fb829a49-e5af-4a85-88ce-1ff420527298
+		sourceLineageTag: First_Production_Date
+		summarizeBy: none
+		sourceColumn: First_Production_Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Days_On_Production
+		dataType: int64
+		formatString: 0
+		lineageTag: b500517b-07a5-4477-b575-f1833387e778
+		sourceLineageTag: Days_On_Production
+		summarizeBy: sum
+		sourceColumn: Days_On_Production
+
+		annotation SummarizationSetBy = Automatic
+
+	column Drilling_Cost_USD
+		dataType: int64
+		formatString: 0
+		lineageTag: cf23d85e-11f7-43b5-bdd3-b15aefad5bc9
+		sourceLineageTag: Drilling_Cost_USD
+		summarizeBy: sum
+		sourceColumn: Drilling_Cost_USD
+
+		annotation SummarizationSetBy = Automatic
+
+	column Initial_Production_BOPD
+		dataType: double
+		lineageTag: 1ffab78a-4b8d-4b8f-bfc9-9ee7f66b0d4d
+		sourceLineageTag: Initial_Production_BOPD
+		summarizeBy: sum
+		sourceColumn: Initial_Production_BOPD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Well_Status
+		dataType: string
+		lineageTag: d124f363-ed21-4793-93f1-d6799f43e4b5
+		sourceLineageTag: Well_Status
+		summarizeBy: none
+		sourceColumn: Well_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ownership_Type
+		dataType: string
+		lineageTag: 4846963f-3c1a-4aca-b965-51daca1c3261
+		sourceLineageTag: Ownership_Type
+		summarizeBy: none
+		sourceColumn: Ownership_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Royalty_Interest_PCT
+		dataType: double
+		lineageTag: 2b3157dd-0d34-46a4-b1e7-d2b6497cd2e3
+		sourceLineageTag: Royalty_Interest_PCT
+		summarizeBy: sum
+		sourceColumn: Royalty_Interest_PCT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_horizontal
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5e9231d3-ffeb-43df-bce6-f9213ceae956
+		sourceLineageTag: is_horizontal
+		summarizeBy: none
+		sourceColumn: is_horizontal
+
+		annotation SummarizationSetBy = Automatic
+
+	column well_age_years
+		dataType: double
+		lineageTag: 3e0fcb36-aebc-4c12-a707-8154857ed756
+		sourceLineageTag: well_age_years
+		summarizeBy: sum
+		sourceColumn: well_age_years
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column well_maturity
+		dataType: string
+		lineageTag: c8af889d-0e78-4882-b379-b7b027ee1cb7
+		sourceLineageTag: well_maturity
+		summarizeBy: none
+		sourceColumn: well_maturity
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_per_foot
+		dataType: double
+		lineageTag: 14dec8e9-7abe-443d-aac6-2473300ecfe4
+		sourceLineageTag: cost_per_foot
+		summarizeBy: sum
+		sourceColumn: cost_per_foot
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column depth_category
+		dataType: string
+		lineageTag: 6ad8cdac-0545-4cb0-9557-4302f011d27f
+		sourceLineageTag: depth_category
+		summarizeBy: none
+		sourceColumn: depth_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_daily_oil
+		dataType: double
+		lineageTag: 77984722-a5f4-4b55-94b5-e23a2d17033d
+		sourceLineageTag: avg_daily_oil
+		summarizeBy: sum
+		sourceColumn: avg_daily_oil
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_water_cut
+		dataType: double
+		lineageTag: 9efeec44-dd7f-4c14-b5c3-98959b2e42f4
+		sourceLineageTag: avg_water_cut
+		summarizeBy: sum
+		sourceColumn: avg_water_cut
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_boe
+		dataType: double
+		lineageTag: 57436119-f0f8-4d34-afcc-dc80d1f6361c
+		sourceLineageTag: total_boe
+		summarizeBy: sum
+		sourceColumn: total_boe
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column operating_margin_pct
+		dataType: double
+		lineageTag: 58f64441-c73a-4240-8ecf-749ed84bd1a7
+		sourceLineageTag: operating_margin_pct
+		summarizeBy: sum
+		sourceColumn: operating_margin_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column well_tier
+		dataType: string
+		lineageTag: c6741cd3-c353-4951-9587-de639e7195ff
+		sourceLineageTag: well_tier
+		summarizeBy: none
+		sourceColumn: well_tier
+
+		annotation SummarizationSetBy = Automatic
+
+	column decline_rate_pct
+		dataType: double
+		lineageTag: ad92e435-6975-47c5-8179-7e0b6d4dfe27
+		sourceLineageTag: decline_rate_pct
+		summarizeBy: sum
+		sourceColumn: decline_rate_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column lifetime_oil
+		dataType: double
+		lineageTag: caf36e31-aec0-4faa-9f2c-e26585d9c46c
+		sourceLineageTag: lifetime_oil
+		summarizeBy: sum
+		sourceColumn: lifetime_oil
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column lifetime_gas
+		dataType: double
+		lineageTag: c35c9d56-4059-4884-8fd0-e8bc3c2d939b
+		sourceLineageTag: lifetime_gas
+		summarizeBy: sum
+		sourceColumn: lifetime_gas
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column lifetime_boe
+		dataType: double
+		lineageTag: f29d7d52-9b24-4096-9323-c7387d49eecf
+		sourceLineageTag: lifetime_boe
+		summarizeBy: sum
+		sourceColumn: lifetime_boe
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column lifetime_revenue
+		dataType: double
+		lineageTag: db321385-9ae8-4818-8627-b36c2562bd16
+		sourceLineageTag: lifetime_revenue
+		summarizeBy: sum
+		sourceColumn: lifetime_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column lifetime_opex
+		dataType: double
+		lineageTag: a8b7f225-8e64-4b0b-b85e-c0f8cc0fad56
+		sourceLineageTag: lifetime_opex
+		summarizeBy: sum
+		sourceColumn: lifetime_opex
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column lifetime_margin
+		dataType: double
+		lineageTag: b7b3cb16-d350-4fb6-b8c6-a220e342898b
+		sourceLineageTag: lifetime_margin
+		summarizeBy: sum
+		sourceColumn: lifetime_margin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column months_produced
+		dataType: int64
+		formatString: 0
+		lineageTag: 238a7a8c-d9e8-4dc3-89ac-693fe8bb03b3
+		sourceLineageTag: months_produced
+		summarizeBy: sum
+		sourceColumn: months_produced
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_production_month
+		dataType: string
+		lineageTag: 227997b9-7be5-4bcd-ac89-7bf149854962
+		sourceLineageTag: last_production_month
+		summarizeBy: none
+		sourceColumn: last_production_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column lifetime_profitability
+		dataType: string
+		lineageTag: db9ca9d4-1af7-425c-b898-7fd6467fe502
+		sourceLineageTag: lifetime_profitability
+		summarizeBy: none
+		sourceColumn: lifetime_profitability
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_well_current = entity
+		mode: directLake
+		source
+			entityName: dim_well_current
+			expressionSource: 'DirectLake - dev_Gld_OnG_Lkh'
+

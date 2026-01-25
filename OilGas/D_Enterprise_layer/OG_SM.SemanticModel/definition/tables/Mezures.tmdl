@@ -1,0 +1,102 @@
+table Mezures
+	lineageTag: 4c15fc05-bee5-4b09-99d5-fdf4e730ed49
+
+	measure 'Total Oil' = SUM(fct_monthly_production[total_oil_bopd])
+		lineageTag: 27131da0-c2b6-4c9e-9a92-2150930ebd49
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total BOE' = SUM(fct_monthly_production[total_boe])
+		lineageTag: b60ef48b-8cd1-471f-bb5e-55f1ec328900
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Gas' = SUM(fct_monthly_production[total_gas_mcf])
+		lineageTag: a640f668-d9a5-4327-b1ba-e54ad13fd613
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Daily Oil' = AVERAGE(fct_monthly_production[avg_daily_oil])
+		lineageTag: 49003bbe-7776-4e38-b61f-cbf69187af73
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Revenue' = SUM(fct_monthly_production[total_net_revenue])
+		lineageTag: 81fb4bd9-fd02-4552-bea6-7c5dfa9d9726
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue per BOE' = DIVIDE([Total Revenue], [Total BOE], 0)
+		lineageTag: 6b70c5db-a935-418a-b606-9963045a82b3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Water Cut' = AVERAGE(fct_monthly_production[avg_actual_water_cut])
+		lineageTag: 0a4de790-6dc0-4b92-ac08-71a6f2331717
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total OPEX' = SUM(fct_monthly_costs[total_opex])
+		lineageTag: a684a470-d781-409b-87a2-dd4752e0fd36
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Labor Cost' = SUM(fct_monthly_costs[total_labor_cost])
+		lineageTag: 1f0c2ae4-e69c-44dc-96ec-e23f09784d74
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average OPEX per BOE' = AVERAGE(fct_monthly_costs[avg_opex_per_boe])
+		lineageTag: bb7d6280-1f72-44cc-b2d0-9db3ee62e013
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Operating Margin' = [Total Revenue] - [Total OPEX]
+		lineageTag: f8a33a0f-9128-4811-b598-29fe5cfeb72a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Operating Margin %' = DIVIDE([Operating Margin], [Total Revenue], 0)
+		lineageTag: e20856e1-da1a-4d8d-bf11-5fcd8417c957
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Active Wells' = DISTINCTCOUNT(fct_monthly_production[Well_ID])
+		formatString: 0
+		lineageTag: 1bd5247d-f342-4d2c-a8b2-5bf3ede8ea0d
+
+	measure 'Tier 1 Wells' = CALCULATE(DISTINCTCOUNT(fct_monthly_well_performance[Well_ID]), fct_monthly_well_performance[well_tier] = "Tier 1 - Strong")
+		formatString: 0
+		lineageTag: fe871672-2d61-4612-91cd-0886946e234e
+
+	measure 'Total Equipment' = COUNTROWS(dim_equipment_current)
+		formatString: 0
+		lineageTag: 86b01566-705f-4fb0-9020-641adc1991a8
+
+	measure 'Critical Equipment' = CALCULATE(COUNTROWS(dim_equipment_current), dim_equipment_current[critical_equipment] = TRUE)
+		formatString: 0
+		lineageTag: 89129597-632e-4343-a080-605fe49257f3
+
+	measure 'Average Health Score' = AVERAGE(dim_equipment_current[Health_Score])
+		lineageTag: f38e3263-9d2b-457d-849e-1bb029caf9a3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'BOE per Day'
+		lineageTag: 7a026e41-2ebe-4068-a55a-4aebaf48b440
+
+	column Value
+		formatString: 0
+		lineageTag: 613fa7ef-e73e-4ccd-8990-a23003b50b96
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Mezures = calculated
+		mode: import
+		source = { 1 }
+
+	annotation PBI_Id = dcb59a6e5f1e443fa7a2da6116d3397f
+

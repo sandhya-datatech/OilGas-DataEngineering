@@ -1,0 +1,4 @@
+relationship d9e14729-c409-972c-4ef9-86d07e2f98b4
+	fromColumn: fct_monthly_production.Well_ID
+	toColumn: dim_well_current.Well_ID
+

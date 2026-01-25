@@ -1,0 +1,23 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["DirectLake - dev_Gld_OnG_Lkh"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DirectLakeOnOneLakeInWeb","WebModelingEdit"]
+
+ref table fct_monthly_basin_summary
+ref table dim_equipment_current
+ref table fct_monthly_production
+ref table dim_well_current
+ref table fct_monthly_costs
+ref table dim_employees_current
+ref table fct_monthly_well_performance
+ref table Mezures
+

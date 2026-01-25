@@ -1,0 +1,186 @@
+table fct_monthly_basin_summary
+	lineageTag: f9fea9db-5b27-4863-8e50-a4fed0a5ed93
+	sourceLineageTag: [dbo].[fct_monthly_basin_summary]
+
+	column year_month
+		dataType: string
+		lineageTag: 9dcbfffb-2489-4fe0-8ab7-16448501f4b1
+		sourceLineageTag: year_month
+		summarizeBy: none
+		sourceColumn: year_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Basin
+		dataType: string
+		lineageTag: 7cf93e97-01cb-456d-9b1d-bddb12a93f3d
+		sourceLineageTag: Basin
+		summarizeBy: none
+		sourceColumn: Basin
+
+		annotation SummarizationSetBy = Automatic
+
+	column active_wells
+		dataType: int64
+		formatString: 0
+		lineageTag: 59b0a5ad-ff0f-4bfa-9b72-39b2257e0faf
+		sourceLineageTag: active_wells
+		summarizeBy: sum
+		sourceColumn: active_wells
+
+		annotation SummarizationSetBy = Automatic
+
+	column basin_total_oil
+		dataType: double
+		lineageTag: 067a6e7e-264d-4938-98a1-124424e022a1
+		sourceLineageTag: basin_total_oil
+		summarizeBy: sum
+		sourceColumn: basin_total_oil
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column basin_total_gas
+		dataType: double
+		lineageTag: 5d090e60-6443-40c0-972a-3b2f1b1ef635
+		sourceLineageTag: basin_total_gas
+		summarizeBy: sum
+		sourceColumn: basin_total_gas
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column basin_total_boe
+		dataType: double
+		lineageTag: 9937b689-48e8-449f-bde1-8f2e2753caca
+		sourceLineageTag: basin_total_boe
+		summarizeBy: sum
+		sourceColumn: basin_total_boe
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column basin_total_revenue
+		dataType: double
+		lineageTag: 534229d8-2113-473c-98c2-d7fd4526cc56
+		sourceLineageTag: basin_total_revenue
+		summarizeBy: sum
+		sourceColumn: basin_total_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column basin_total_opex
+		dataType: double
+		lineageTag: 294def42-bb35-4349-b84b-fa30067bff5d
+		sourceLineageTag: basin_total_opex
+		summarizeBy: sum
+		sourceColumn: basin_total_opex
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column basin_operating_margin
+		dataType: double
+		lineageTag: eb61c2fe-4be6-4f21-aae9-df62aaede3e7
+		sourceLineageTag: basin_operating_margin
+		summarizeBy: sum
+		sourceColumn: basin_operating_margin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_well_daily_oil
+		dataType: double
+		lineageTag: 1a9dfe29-a076-469e-b20a-4a12449446d7
+		sourceLineageTag: avg_well_daily_oil
+		summarizeBy: sum
+		sourceColumn: avg_well_daily_oil
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_operating_margin_pct
+		dataType: double
+		lineageTag: a8aa4192-31e5-4d11-8163-106d6ffc6378
+		sourceLineageTag: avg_operating_margin_pct
+		summarizeBy: sum
+		sourceColumn: avg_operating_margin_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column basin_avg_water_cut
+		dataType: double
+		lineageTag: 4833b154-e35c-4bce-b1e9-c1b90bc78309
+		sourceLineageTag: basin_avg_water_cut
+		summarizeBy: sum
+		sourceColumn: basin_avg_water_cut
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tier1_wells
+		dataType: int64
+		formatString: 0
+		lineageTag: 3588b1c5-cdee-40a2-8d50-1a396d5726e7
+		sourceLineageTag: tier1_wells
+		summarizeBy: sum
+		sourceColumn: tier1_wells
+
+		annotation SummarizationSetBy = Automatic
+
+	column tier2_wells
+		dataType: int64
+		formatString: 0
+		lineageTag: 2e755351-726f-49d4-aa92-39ab6da8b128
+		sourceLineageTag: tier2_wells
+		summarizeBy: sum
+		sourceColumn: tier2_wells
+
+		annotation SummarizationSetBy = Automatic
+
+	column tier3_wells
+		dataType: int64
+		formatString: 0
+		lineageTag: a4744c87-f1e1-4072-9c6c-cbf302683d63
+		sourceLineageTag: tier3_wells
+		summarizeBy: sum
+		sourceColumn: tier3_wells
+
+		annotation SummarizationSetBy = Automatic
+
+	column tier4_wells
+		dataType: int64
+		formatString: 0
+		lineageTag: 15165a20-33aa-4298-b044-a3b001ba8a20
+		sourceLineageTag: tier4_wells
+		summarizeBy: sum
+		sourceColumn: tier4_wells
+
+		annotation SummarizationSetBy = Automatic
+
+	column basin_profitability
+		dataType: string
+		lineageTag: 7b09b7ca-43f1-4af9-84a8-645edbf47569
+		sourceLineageTag: basin_profitability
+		summarizeBy: none
+		sourceColumn: basin_profitability
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_monthly_basin_summary = entity
+		mode: directLake
+		source
+			entityName: fct_monthly_basin_summary
+			expressionSource: 'DirectLake - dev_Gld_OnG_Lkh'
+

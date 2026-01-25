@@ -1,0 +1,476 @@
+table fct_monthly_well_performance
+	lineageTag: c3a263dc-4f4e-463e-87d3-c5254db61046
+	sourceLineageTag: [dbo].[fct_monthly_well_performance]
+
+	column year_month
+		dataType: string
+		lineageTag: fcd35fc9-e182-418e-a8a6-21cbd0ce0f28
+		sourceLineageTag: year_month
+		summarizeBy: none
+		sourceColumn: year_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Well_ID
+		dataType: string
+		lineageTag: 16a9ad1a-cc54-405a-88d2-7afb2f8bc2d9
+		sourceLineageTag: Well_ID
+		summarizeBy: none
+		sourceColumn: Well_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Well_Name
+		dataType: string
+		lineageTag: db697ade-d383-4bec-ac56-3578082acd74
+		sourceLineageTag: Well_Name
+		summarizeBy: none
+		sourceColumn: Well_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Basin
+		dataType: string
+		lineageTag: 98187c7a-53bd-460e-a0e2-bb323e70386f
+		sourceLineageTag: Basin
+		summarizeBy: none
+		sourceColumn: Basin
+
+		annotation SummarizationSetBy = Automatic
+
+	column Well_Type
+		dataType: string
+		lineageTag: 6d04d927-f061-4be9-bada-c5a7c2234d46
+		sourceLineageTag: Well_Type
+		summarizeBy: none
+		sourceColumn: Well_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Well_Status
+		dataType: string
+		lineageTag: f3eb26ab-acf8-459b-a118-e99bec2bc292
+		sourceLineageTag: Well_Status
+		summarizeBy: none
+		sourceColumn: Well_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column days_produced
+		dataType: int64
+		formatString: 0
+		lineageTag: 7b3855b4-3284-4191-a804-f1bfb9aadfd6
+		sourceLineageTag: days_produced
+		summarizeBy: sum
+		sourceColumn: days_produced
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_oil_bopd
+		dataType: double
+		lineageTag: 2273eafc-334f-4c79-b5b6-d37184e39652
+		sourceLineageTag: total_oil_bopd
+		summarizeBy: sum
+		sourceColumn: total_oil_bopd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_gas_mcf
+		dataType: double
+		lineageTag: a8c79562-1232-4b35-92fb-36718dcfeb38
+		sourceLineageTag: total_gas_mcf
+		summarizeBy: sum
+		sourceColumn: total_gas_mcf
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_water_bwpd
+		dataType: double
+		lineageTag: d2d46315-90c9-4d49-aabd-f619ac831f52
+		sourceLineageTag: total_water_bwpd
+		summarizeBy: sum
+		sourceColumn: total_water_bwpd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_boe
+		dataType: double
+		lineageTag: 8cbcf0ab-b0c4-4f1a-baef-865282a49bd1
+		sourceLineageTag: total_boe
+		summarizeBy: sum
+		sourceColumn: total_boe
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_daily_oil
+		dataType: double
+		lineageTag: 269b2f83-4b78-48dd-abf1-266d28107a25
+		sourceLineageTag: avg_daily_oil
+		summarizeBy: sum
+		sourceColumn: avg_daily_oil
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_water_cut
+		dataType: double
+		lineageTag: b61eddd3-9ef5-4377-9cb0-f8487b662b57
+		sourceLineageTag: avg_water_cut
+		summarizeBy: sum
+		sourceColumn: avg_water_cut
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_actual_water_cut
+		dataType: double
+		lineageTag: 9c7a1f80-9509-4947-87c4-6691f988d54c
+		sourceLineageTag: avg_actual_water_cut
+		summarizeBy: sum
+		sourceColumn: avg_actual_water_cut
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_gross_revenue
+		dataType: double
+		lineageTag: ead2e0aa-d79a-4b07-b8f6-98b6dd373fb1
+		sourceLineageTag: total_gross_revenue
+		summarizeBy: sum
+		sourceColumn: total_gross_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_net_revenue
+		dataType: double
+		lineageTag: fca76ca0-c1c0-4c77-b65c-0e9ca3c6ef81
+		sourceLineageTag: total_net_revenue
+		summarizeBy: sum
+		sourceColumn: total_net_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_oil_price
+		dataType: double
+		lineageTag: 102780e2-33af-44e1-80d1-320805ccb7e5
+		sourceLineageTag: avg_oil_price
+		summarizeBy: sum
+		sourceColumn: avg_oil_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_gas_price
+		dataType: double
+		lineageTag: b6c448e8-476e-4e4c-8b41-b68e27be65f8
+		sourceLineageTag: avg_gas_price
+		summarizeBy: sum
+		sourceColumn: avg_gas_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_revenue_per_boe
+		dataType: double
+		lineageTag: ae5bc95c-ca66-4df9-aba3-df0e8bec237a
+		sourceLineageTag: avg_revenue_per_boe
+		summarizeBy: sum
+		sourceColumn: avg_revenue_per_boe
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column high_water_cut_days
+		dataType: int64
+		formatString: 0
+		lineageTag: bddd6ff4-13e4-4c4a-8615-e33aea06c146
+		sourceLineageTag: high_water_cut_days
+		summarizeBy: sum
+		sourceColumn: high_water_cut_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column low_producer_days
+		dataType: int64
+		formatString: 0
+		lineageTag: e7912e68-2316-453c-81be-ce0f8a31f282
+		sourceLineageTag: low_producer_days
+		summarizeBy: sum
+		sourceColumn: low_producer_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column production_status
+		dataType: string
+		lineageTag: 39a4053f-73ea-48b6-81d3-014fbd030d72
+		sourceLineageTag: production_status
+		summarizeBy: none
+		sourceColumn: production_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column water_cut_trend
+		dataType: string
+		lineageTag: 2e68487f-ef03-4b3c-b2a2-11fc3e0a36fc
+		sourceLineageTag: water_cut_trend
+		summarizeBy: none
+		sourceColumn: water_cut_trend
+
+		annotation SummarizationSetBy = Automatic
+
+	column days_with_costs
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f1d1494-e010-4e99-b246-d61ac63638ce
+		sourceLineageTag: days_with_costs
+		summarizeBy: sum
+		sourceColumn: days_with_costs
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_labor_cost
+		dataType: double
+		lineageTag: 6aac65ad-e37d-4283-8e8a-2075130abba9
+		sourceLineageTag: total_labor_cost
+		summarizeBy: sum
+		sourceColumn: total_labor_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_power_cost
+		dataType: double
+		lineageTag: e9f9b37b-0081-44e1-ac3e-174e35304807
+		sourceLineageTag: total_power_cost
+		summarizeBy: sum
+		sourceColumn: total_power_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_chemical_cost
+		dataType: double
+		lineageTag: 2cac6898-2b4c-4ca4-ad62-b2720ad623dc
+		sourceLineageTag: total_chemical_cost
+		summarizeBy: sum
+		sourceColumn: total_chemical_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_water_disposal_cost
+		dataType: double
+		lineageTag: 570dc5f1-a036-4985-bd00-0ca7b1eebc97
+		sourceLineageTag: total_water_disposal_cost
+		summarizeBy: sum
+		sourceColumn: total_water_disposal_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_maintenance_cost
+		dataType: double
+		lineageTag: 164b2e0a-ec66-411d-8612-0a1c697116a7
+		sourceLineageTag: total_maintenance_cost
+		summarizeBy: sum
+		sourceColumn: total_maintenance_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_workover_cost
+		dataType: double
+		lineageTag: 09fc72c7-cdf1-40dd-94de-78746bef7a3b
+		sourceLineageTag: total_workover_cost
+		summarizeBy: sum
+		sourceColumn: total_workover_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_opex
+		dataType: double
+		lineageTag: 2cdbee65-5880-47bb-8bd9-62771ce31e75
+		sourceLineageTag: total_opex
+		summarizeBy: sum
+		sourceColumn: total_opex
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_boe_produced
+		dataType: double
+		lineageTag: 318f5412-e36c-44ed-86c0-87680dbd50c5
+		sourceLineageTag: total_boe_produced
+		summarizeBy: sum
+		sourceColumn: total_boe_produced
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_opex_per_boe
+		dataType: double
+		lineageTag: 97a5e6f2-51bc-4cae-b2c6-73f5f4c35ef0
+		sourceLineageTag: avg_opex_per_boe
+		summarizeBy: sum
+		sourceColumn: avg_opex_per_boe
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_operating_netback
+		dataType: double
+		lineageTag: 5c23d3e7-510c-4171-89d6-9c473d3135e9
+		sourceLineageTag: total_operating_netback
+		summarizeBy: sum
+		sourceColumn: total_operating_netback
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_profit_margin_pct
+		dataType: double
+		lineageTag: 6aebc551-766b-4f56-bb87-01c2d9e87138
+		sourceLineageTag: avg_profit_margin_pct
+		summarizeBy: sum
+		sourceColumn: avg_profit_margin_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column profitable_days
+		dataType: int64
+		formatString: 0
+		lineageTag: 38e7da3b-e5f3-4145-a49a-3395b3aeb24f
+		sourceLineageTag: profitable_days
+		summarizeBy: sum
+		sourceColumn: profitable_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_efficiency_rating
+		dataType: string
+		lineageTag: 867578c8-2a8d-49da-84ab-f2945579943e
+		sourceLineageTag: cost_efficiency_rating
+		summarizeBy: none
+		sourceColumn: cost_efficiency_rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column largest_cost_driver
+		dataType: string
+		lineageTag: da43f8a6-4df4-465c-82ce-ba978f4359ff
+		sourceLineageTag: largest_cost_driver
+		summarizeBy: none
+		sourceColumn: largest_cost_driver
+
+		annotation SummarizationSetBy = Automatic
+
+	column profitability_status
+		dataType: string
+		lineageTag: 001993ca-5e15-4550-894b-e306f013f3b2
+		sourceLineageTag: profitability_status
+		summarizeBy: none
+		sourceColumn: profitability_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column operating_margin
+		dataType: double
+		lineageTag: 0960d3a5-a17d-4b9b-a8b3-8f191fad2372
+		sourceLineageTag: operating_margin
+		summarizeBy: sum
+		sourceColumn: operating_margin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column operating_margin_pct
+		dataType: double
+		lineageTag: 0cdbcb83-810f-45be-b6a0-4026468cdda2
+		sourceLineageTag: operating_margin_pct
+		summarizeBy: sum
+		sourceColumn: operating_margin_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column revenue_per_boe
+		dataType: double
+		lineageTag: f8e168be-c4f3-4d59-8eca-1900b734ef3c
+		sourceLineageTag: revenue_per_boe
+		summarizeBy: sum
+		sourceColumn: revenue_per_boe
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cost_per_boe
+		dataType: double
+		lineageTag: 0f7a39e3-86e5-4c77-8e21-98b71e2285e3
+		sourceLineageTag: cost_per_boe
+		summarizeBy: sum
+		sourceColumn: cost_per_boe
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column well_tier
+		dataType: string
+		lineageTag: 3ba9a37e-f38f-4907-8f9e-eba56f4da8b0
+		sourceLineageTag: well_tier
+		summarizeBy: none
+		sourceColumn: well_tier
+
+		annotation SummarizationSetBy = Automatic
+
+	column decline_rate_pct
+		dataType: double
+		lineageTag: 3d274aae-14c4-4b73-9a33-08df19820c55
+		sourceLineageTag: decline_rate_pct
+		summarizeBy: sum
+		sourceColumn: decline_rate_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fct_monthly_well_performance = entity
+		mode: directLake
+		source
+			entityName: fct_monthly_well_performance
+			expressionSource: 'DirectLake - dev_Gld_OnG_Lkh'
+

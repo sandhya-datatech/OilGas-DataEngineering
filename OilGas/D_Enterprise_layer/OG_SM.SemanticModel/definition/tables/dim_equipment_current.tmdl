@@ -1,0 +1,267 @@
+table dim_equipment_current
+	lineageTag: 1023470e-f5ab-4d01-b7f0-bfaeab64e0cc
+	sourceLineageTag: [dbo].[dim_equipment_current]
+
+	column Equipment_ID
+		dataType: string
+		lineageTag: 0935d439-722c-4d86-8c2f-5559ce6d33da
+		sourceLineageTag: Equipment_ID
+		summarizeBy: none
+		sourceColumn: Equipment_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Well_ID
+		dataType: string
+		lineageTag: 31d16793-19d5-4658-adca-8b00d14aa85d
+		sourceLineageTag: Well_ID
+		summarizeBy: none
+		sourceColumn: Well_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Equipment_Type_Code
+		dataType: string
+		lineageTag: 31b0cd43-8bbc-4a5c-ab84-58d9c6a20b1b
+		sourceLineageTag: Equipment_Type_Code
+		summarizeBy: none
+		sourceColumn: Equipment_Type_Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Equipment_Type
+		dataType: string
+		lineageTag: c860417a-bda6-40cd-a727-a1c9f7726e11
+		sourceLineageTag: Equipment_Type
+		summarizeBy: none
+		sourceColumn: Equipment_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Manufacturer
+		dataType: string
+		lineageTag: 282494f3-3183-4283-9baa-830f66c9a029
+		sourceLineageTag: Manufacturer
+		summarizeBy: none
+		sourceColumn: Manufacturer
+
+		annotation SummarizationSetBy = Automatic
+
+	column Model_Number
+		dataType: string
+		lineageTag: 87d6bfe5-f561-428b-b818-3b4711b80bce
+		sourceLineageTag: Model_Number
+		summarizeBy: none
+		sourceColumn: Model_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Serial_Number
+		dataType: string
+		lineageTag: 55d3b606-ca83-4dfe-a579-aaa2925c6603
+		sourceLineageTag: Serial_Number
+		summarizeBy: none
+		sourceColumn: Serial_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Install_Date
+		dataType: string
+		lineageTag: 8837bf37-5411-4237-a2a2-561cf8be60ce
+		sourceLineageTag: Install_Date
+		summarizeBy: none
+		sourceColumn: Install_Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Days_In_Service
+		dataType: int64
+		formatString: 0
+		lineageTag: ef95f719-c70d-4b56-a878-05164eebb997
+		sourceLineageTag: Days_In_Service
+		summarizeBy: sum
+		sourceColumn: Days_In_Service
+
+		annotation SummarizationSetBy = Automatic
+
+	column Purchase_Cost_USD
+		dataType: double
+		lineageTag: c4edc0d4-3e00-458f-b588-69b0719bcc53
+		sourceLineageTag: Purchase_Cost_USD
+		summarizeBy: sum
+		sourceColumn: Purchase_Cost_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Runtime_Hours
+		dataType: int64
+		formatString: 0
+		lineageTag: b9fb69c3-1f1a-4562-93de-ba84a1a5528a
+		sourceLineageTag: Runtime_Hours
+		summarizeBy: sum
+		sourceColumn: Runtime_Hours
+
+		annotation SummarizationSetBy = Automatic
+
+	column Expected_Life_Hours
+		dataType: int64
+		formatString: 0
+		lineageTag: dfcf0d21-a272-46d0-8e0f-ffddcb365e0f
+		sourceLineageTag: Expected_Life_Hours
+		summarizeBy: sum
+		sourceColumn: Expected_Life_Hours
+
+		annotation SummarizationSetBy = Automatic
+
+	column Health_Score
+		dataType: double
+		lineageTag: 268412bf-5934-47d2-99cf-50c7ffb324d6
+		sourceLineageTag: Health_Score
+		summarizeBy: sum
+		sourceColumn: Health_Score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Last_Maintenance_Date
+		dataType: string
+		lineageTag: bd304c38-3b46-4bed-aa36-3955d81d9b30
+		sourceLineageTag: Last_Maintenance_Date
+		summarizeBy: none
+		sourceColumn: Last_Maintenance_Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Days_Since_Maintenance
+		dataType: int64
+		formatString: 0
+		lineageTag: 9df14c20-36e8-4d5c-9f8d-446d5c6b4a8b
+		sourceLineageTag: Days_Since_Maintenance
+		summarizeBy: sum
+		sourceColumn: Days_Since_Maintenance
+
+		annotation SummarizationSetBy = Automatic
+
+	column Maintenance_Status
+		dataType: string
+		lineageTag: 108cdbc4-706c-45ef-ba1d-b806e699328b
+		sourceLineageTag: Maintenance_Status
+		summarizeBy: none
+		sourceColumn: Maintenance_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Failure_Probability_PCT
+		dataType: double
+		lineageTag: 740ff4c4-66f2-4528-af6f-c6fed0c21a29
+		sourceLineageTag: Failure_Probability_PCT
+		summarizeBy: sum
+		sourceColumn: Failure_Probability_PCT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Vibration_Level
+		dataType: double
+		lineageTag: d6a13fcc-6cda-4276-9e30-f733b01d1b10
+		sourceLineageTag: Vibration_Level
+		summarizeBy: sum
+		sourceColumn: Vibration_Level
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Temperature_F
+		dataType: double
+		lineageTag: ac63eb06-f8b8-4486-9fc8-55ec2298339f
+		sourceLineageTag: Temperature_F
+		summarizeBy: sum
+		sourceColumn: Temperature_F
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Pressure_PSI
+		dataType: double
+		lineageTag: 6a2e774c-d616-472c-a1ff-f5e5ff8afbe9
+		sourceLineageTag: Pressure_PSI
+		summarizeBy: sum
+		sourceColumn: Pressure_PSI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column equipment_age_years
+		dataType: double
+		lineageTag: be09c9f1-89bd-4221-82fc-e884372ae297
+		sourceLineageTag: equipment_age_years
+		summarizeBy: sum
+		sourceColumn: equipment_age_years
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column utilization_pct
+		dataType: double
+		lineageTag: fc23256a-0afa-4ed3-ab46-4ed03343823b
+		sourceLineageTag: utilization_pct
+		summarizeBy: sum
+		sourceColumn: utilization_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column remaining_life_hours
+		dataType: int64
+		formatString: 0
+		lineageTag: c59aed0b-3970-45e4-a19e-9a0cfd25e172
+		sourceLineageTag: remaining_life_hours
+		summarizeBy: sum
+		sourceColumn: remaining_life_hours
+
+		annotation SummarizationSetBy = Automatic
+
+	column maintenance_overdue
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 598c46e9-6dfe-46cc-b991-2eadca825338
+		sourceLineageTag: maintenance_overdue
+		summarizeBy: none
+		sourceColumn: maintenance_overdue
+
+		annotation SummarizationSetBy = Automatic
+
+	column critical_equipment
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 2fbd97b5-853b-44cc-b290-9e2cf5399f53
+		sourceLineageTag: critical_equipment
+		summarizeBy: none
+		sourceColumn: critical_equipment
+
+		annotation SummarizationSetBy = Automatic
+
+	column replacement_priority
+		dataType: string
+		lineageTag: 7d6dd371-8141-4ba2-9d33-227946ab6947
+		sourceLineageTag: replacement_priority
+		summarizeBy: none
+		sourceColumn: replacement_priority
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_equipment_current = entity
+		mode: directLake
+		source
+			entityName: dim_equipment_current
+			expressionSource: 'DirectLake - dev_Gld_OnG_Lkh'
+

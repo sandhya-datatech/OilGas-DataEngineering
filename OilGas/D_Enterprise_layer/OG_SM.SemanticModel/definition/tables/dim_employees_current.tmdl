@@ -1,0 +1,171 @@
+table dim_employees_current
+	lineageTag: 82f2ee9a-d2d4-43d9-90db-d533655681cd
+	sourceLineageTag: [dbo].[dim_employees_current]
+
+	column Employee_ID
+		dataType: string
+		lineageTag: 1ad26347-0362-4e68-a683-cf4dd0f09ca9
+		sourceLineageTag: Employee_ID
+		summarizeBy: none
+		sourceColumn: Employee_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column First_Name
+		dataType: string
+		lineageTag: a8b704bf-1975-4e88-8552-053e6c1a90a8
+		sourceLineageTag: First_Name
+		summarizeBy: none
+		sourceColumn: First_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Last_Name
+		dataType: string
+		lineageTag: 3f872a7d-643a-43c9-85ae-c8b97a82e57d
+		sourceLineageTag: Last_Name
+		summarizeBy: none
+		sourceColumn: Last_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Job_Title
+		dataType: string
+		lineageTag: b443ce8a-ddcf-4adf-944c-b43649f55c50
+		sourceLineageTag: Job_Title
+		summarizeBy: none
+		sourceColumn: Job_Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		lineageTag: 7ad7ea1f-4498-4544-9835-eb9804bef2f0
+		sourceLineageTag: Department
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hire_Date
+		dataType: string
+		lineageTag: 1fc71510-49af-4cca-a715-cc757b5f5527
+		sourceLineageTag: Hire_Date
+		summarizeBy: none
+		sourceColumn: Hire_Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Years_Of_Service
+		dataType: double
+		lineageTag: 0ef32f77-f94f-48a6-8030-36f93031a697
+		sourceLineageTag: Years_Of_Service
+		summarizeBy: sum
+		sourceColumn: Years_Of_Service
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Annual_Salary_USD
+		dataType: double
+		lineageTag: bab9d5c7-54cf-47af-9934-4063f45cf041
+		sourceLineageTag: Annual_Salary_USD
+		summarizeBy: sum
+		sourceColumn: Annual_Salary_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Employment_Status
+		dataType: string
+		lineageTag: 334614d0-4a10-436a-a006-e7ffe4c45e23
+		sourceLineageTag: Employment_Status
+		summarizeBy: none
+		sourceColumn: Employment_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Certification_Status
+		dataType: string
+		lineageTag: b2e4ade2-0e3a-446a-bfc5-0288b7204bd1
+		sourceLineageTag: Certification_Status
+		summarizeBy: none
+		sourceColumn: Certification_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Assigned_Wells_Count
+		dataType: int64
+		formatString: 0
+		lineageTag: 3eb756cc-089f-4e41-b671-5bfea6c19704
+		sourceLineageTag: Assigned_Wells_Count
+		summarizeBy: sum
+		sourceColumn: Assigned_Wells_Count
+
+		annotation SummarizationSetBy = Automatic
+
+	column Assigned_Wells
+		dataType: string
+		lineageTag: 592a2a02-a044-4cd9-9df4-e680d2d1da51
+		sourceLineageTag: Assigned_Wells
+		summarizeBy: none
+		sourceColumn: Assigned_Wells
+
+		annotation SummarizationSetBy = Automatic
+
+	column Safety_Training_Date
+		dataType: string
+		lineageTag: 7f459ab2-7a5a-4b2c-ba75-d138dcbaa755
+		sourceLineageTag: Safety_Training_Date
+		summarizeBy: none
+		sourceColumn: Safety_Training_Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column tenure_years
+		dataType: double
+		lineageTag: d32bf0bd-2b4d-4090-919b-020b426f0134
+		sourceLineageTag: tenure_years
+		summarizeBy: sum
+		sourceColumn: tenure_years
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column training_status
+		dataType: string
+		lineageTag: 2523ca6a-eddc-49c7-843f-789a89ea5f95
+		sourceLineageTag: training_status
+		summarizeBy: none
+		sourceColumn: training_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column salary_band
+		dataType: string
+		lineageTag: 44eb2515-ac0e-4c08-920a-b45540b7777e
+		sourceLineageTag: salary_band
+		summarizeBy: none
+		sourceColumn: salary_band
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_field_role
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4a884b0e-ab1b-4327-8e7b-d004ab36b53c
+		sourceLineageTag: is_field_role
+		summarizeBy: none
+		sourceColumn: is_field_role
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_employees_current = entity
+		mode: directLake
+		source
+			entityName: dim_employees_current
+			expressionSource: 'DirectLake - dev_Gld_OnG_Lkh'
+

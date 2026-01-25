@@ -1,0 +1,147 @@
+{
+  "config": "{\"version\":\"5.69\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY25SU12\",\"version\":{\"visual\":\"2.5.0\",\"report\":\"3.1.0\",\"page\":\"2.3.0\"},\"type\":2},\"customTheme\":{\"name\":\"CopilotDefault\",\"version\":{\"visual\":\"2.5.0\",\"report\":\"3.1.0\",\"page\":\"2.3.0\"},\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":0,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"visible\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "pods": [
+    {
+      "boundSection": "f242b07867c2d5d0bdb0",
+      "config": "{}",
+      "name": "e05a59e7108163610073",
+      "parameters": "[{\"name\":\"b84cc6d545a9ab360202\",\"boundFilter\":\"2a709e5b004169d7837c\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"fct_monthly_basin_summary\"}},\"Property\":\"year_month\"}}}]",
+      "type": 1
+    }
+  ],
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY25SU12",
+            "path": "BaseThemes/CY25SU12.json",
+            "type": 202
+          },
+          {
+            "name": "CopilotDefault",
+            "path": "BuiltInThemes/CopilotDefault.json",
+            "type": 201
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{\"relationships\":[{\"source\":\"10f754cd09716e7806e1\",\"target\":\"aee77dfa55e0165bd090\",\"type\":1},{\"source\":\"10f754cd09716e7806e1\",\"target\":\"e3bfca38892ccd45e5e4\",\"type\":1}],\"objects\":{\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"400L\"}}}}}]}}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"2a709e5b004169d7837c\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"fct_monthly_basin_summary\"}},\"Property\":\"year_month\"}},\"type\":\"Categorical\",\"howCreated\":5}]",
+      "height": 720.00,
+      "name": "f242b07867c2d5d0bdb0",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"0483915b4c7e2c7b317a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":885.59670781893,\"y\":19.753086419753085,\"z\":4000,\"width\":308.8065843621399,\"height\":214.65020576131687,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"advancedSlicerVisual\",\"projections\":{\"Values\":[{\"queryRef\":\"fct_monthly_production.Basin\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fct_monthly_production\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Basin\"},\"Name\":\"fct_monthly_production.Basin\",\"NativeReferenceName\":\"Basin\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"selection\":[{\"properties\":{\"singleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"selectAllCheckboxEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"layout\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"style\":{\"expr\":{\"Literal\":{\"Value\":\"'Cards'\"}}},\"cellPadding\":{\"expr\":{\"Literal\":{\"Value\":\"1L\"}}}}}],\"overFlow\":[{\"properties\":{\"overFlowDirection\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fct_monthly_production\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Basin\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Bakken Formation'\"}}],[{\"Literal\":{\"Value\":\"'Delaware Basin'\"}}],[{\"Literal\":{\"Value\":\"'Eagle Ford'\"}}]]}}}]}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"title\":[{\"properties\":{\"heading\":{\"expr\":{\"Literal\":{\"Value\":\"'Heading2'\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Arial Black'''\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"18D\"}}}}}],\"spacing\":[{\"properties\":{\"verticalSpacing\":{\"expr\":{\"Literal\":{\"Value\":\"4D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 214.65,
+          "width": 308.81,
+          "x": 885.60,
+          "y": 19.75,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"0e3d391a3a965388c5db\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":468.14814814814815,\"z\":10000,\"width\":329.87654320987656,\"height\":252.18106995884773,\"tabOrder\":10000}}],\"singleVisual\":{\"visualType\":\"lineClusteredColumnComboChart\",\"projections\":{\"Category\":[{\"queryRef\":\"fct_monthly_costs.year_month\",\"active\":true}],\"Y2\":[{\"queryRef\":\"Sum(fct_monthly_costs.total_opex)\"}],\"Y\":[{\"queryRef\":\"Sum(fct_monthly_costs.total_boe_produced)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fct_monthly_costs\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"year_month\"},\"Name\":\"fct_monthly_costs.year_month\",\"NativeReferenceName\":\"year_month\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"total_opex\"}},\"Function\":0},\"Name\":\"Sum(fct_monthly_costs.total_opex)\",\"NativeReferenceName\":\"Sum of total_opex\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"total_boe_produced\"}},\"Function\":0},\"Name\":\"Sum(fct_monthly_costs.total_boe_produced)\",\"NativeReferenceName\":\"Sum of total_boe_produced\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"total_boe_produced\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 252.18,
+          "width": 329.88,
+          "x": 0.00,
+          "y": 468.15,
+          "z": 10000.00
+        },
+        {
+          "config": "{\"name\":\"10f754cd09716e7806e1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":353.8461538461538,\"y\":430,\"z\":9000,\"width\":391.53846153846155,\"height\":290,\"tabOrder\":9000}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Y\":[{\"queryRef\":\"CountNonNull(dim_equipment_current.Equipment_ID)\"}],\"Category\":[{\"queryRef\":\"dim_equipment_current.Maintenance_Status\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_equipment_current\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Equipment_ID\"}},\"Function\":5},\"Name\":\"CountNonNull(dim_equipment_current.Equipment_ID)\",\"NativeReferenceName\":\"Count of Equipment_ID\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Maintenance_Status\"},\"Name\":\"dim_equipment_current.Maintenance_Status\",\"NativeReferenceName\":\"Maintenance_Status\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Equipment_ID\"}},\"Function\":5}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 290.00,
+          "width": 391.54,
+          "x": 353.85,
+          "y": 430.00,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"256fb8931a73b869b070\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"width\":100,\"height\":40,\"z\":2000,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'back'\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Back'\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 40.00,
+          "width": 100.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"76ba6e10471ad004314d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":745.3497942386831,\"y\":245.59670781893004,\"z\":8000,\"width\":534.6502057613169,\"height\":474.0740740740741,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"fct_monthly_production.Well_ID\"},{\"queryRef\":\"fct_monthly_production.Well_Name\"},{\"queryRef\":\"fct_monthly_production.Well_Status\"},{\"queryRef\":\"Sum(fct_monthly_production.avg_daily_oil)\"},{\"queryRef\":\"Sum(fct_monthly_production.avg_water_cut)\"},{\"queryRef\":\"Sum(fct_monthly_production.total_net_revenue)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fct_monthly_production\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Well_ID\"},\"Name\":\"fct_monthly_production.Well_ID\",\"NativeReferenceName\":\"Well_ID\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Well_Name\"},\"Name\":\"fct_monthly_production.Well_Name\",\"NativeReferenceName\":\"Well_Name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Well_Status\"},\"Name\":\"fct_monthly_production.Well_Status\",\"NativeReferenceName\":\"Well_Status\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"avg_daily_oil\"},\"Name\":\"Sum(fct_monthly_production.avg_daily_oil)\",\"NativeReferenceName\":\"avg_daily_oil\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"avg_water_cut\"},\"Name\":\"Sum(fct_monthly_production.avg_water_cut)\",\"NativeReferenceName\":\"avg_water_cut\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"total_net_revenue\"}},\"Function\":0},\"Name\":\"Sum(fct_monthly_production.total_net_revenue)\",\"NativeReferenceName\":\"Sum of total_net_revenue\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"avg_water_cut\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"values\":[{\"properties\":{\"backColor\":{\"solid\":{\"color\":{\"expr\":{\"Conditional\":{\"Cases\":[{\"Condition\":{\"And\":{\"Left\":{\"Comparison\":{\"ComparisonKind\":2,\"Left\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"fct_monthly_production\"}},\"Property\":\"avg_water_cut\"}},\"Function\":0}},\"Right\":{\"RangePercent\":{\"Min\":{\"ScopedEval\":{\"Expression\":{\"Aggregation\":{\"Expression\":{\"ScopedEval\":{\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"fct_monthly_production\"}},\"Property\":\"avg_water_cut\"}},\"Function\":0}},\"Scope\":[{\"AllRolesRef\":{}}]}},\"Function\":3}},\"Scope\":[]}},\"Max\":{\"ScopedEval\":{\"Expression\":{\"Aggregation\":{\"Expression\":{\"ScopedEval\":{\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"fct_monthly_production\"}},\"Property\":\"avg_water_cut\"}},\"Function\":0}},\"Scope\":[{\"AllRolesRef\":{}}]}},\"Function\":4}},\"Scope\":[]}},\"Percent\":0.004}}}},\"Right\":{\"Comparison\":{\"ComparisonKind\":4,\"Left\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"fct_monthly_production\"}},\"Property\":\"avg_water_cut\"}},\"Function\":0}},\"Right\":{\"RangePercent\":{\"Min\":{\"ScopedEval\":{\"Expression\":{\"Aggregation\":{\"Expression\":{\"ScopedEval\":{\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"fct_monthly_production\"}},\"Property\":\"avg_water_cut\"}},\"Function\":0}},\"Scope\":[{\"AllRolesRef\":{}}]}},\"Function\":3}},\"Scope\":[]}},\"Max\":{\"ScopedEval\":{\"Expression\":{\"Aggregation\":{\"Expression\":{\"ScopedEval\":{\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"fct_monthly_production\"}},\"Property\":\"avg_water_cut\"}},\"Function\":0}},\"Scope\":[{\"AllRolesRef\":{}}]}},\"Function\":4}},\"Scope\":[]}},\"Percent\":0.01}}}}}},\"Value\":{\"Literal\":{\"Value\":\"'#D64550'\"}}}]}}}}}},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}],\"metadata\":\"Sum(fct_monthly_production.avg_water_cut)\"}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Well Performance'\"}}},\"heading\":{\"expr\":{\"Literal\":{\"Value\":\"'Heading4'\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"12D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 474.07,
+          "width": 534.65,
+          "x": 745.35,
+          "y": 245.60,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"925b525b0ab04b11c521\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":203.07692307692307,\"z\":6000,\"width\":343.8461538461538,\"height\":265.38461538461536,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"fct_monthly_production.year_month\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(fct_monthly_production.total_oil_bopd)\"},{\"queryRef\":\"Sum(fct_monthly_production.total_gas_mcf)\"},{\"queryRef\":\"Sum(fct_monthly_production.total_boe)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fct_monthly_production\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"year_month\"},\"Name\":\"fct_monthly_production.year_month\",\"NativeReferenceName\":\"year_month\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"total_oil_bopd\"}},\"Function\":0},\"Name\":\"Sum(fct_monthly_production.total_oil_bopd)\",\"NativeReferenceName\":\"Sum of total_oil_bopd\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"total_gas_mcf\"}},\"Function\":0},\"Name\":\"Sum(fct_monthly_production.total_gas_mcf)\",\"NativeReferenceName\":\"Sum of total_gas_mcf\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"total_boe\"}},\"Function\":0},\"Name\":\"Sum(fct_monthly_production.total_boe)\",\"NativeReferenceName\":\"Sum of total_boe\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"total_oil_bopd\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 265.38,
+          "width": 343.85,
+          "x": 0.00,
+          "y": 203.08,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"98cdbde06b34c5903647\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":54.57364341085271,\"z\":0,\"width\":155.45219638242892,\"height\":107.49354005167957,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"Min(dim_well_current.Well_ID)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_well_current\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Well_ID\"}},\"Function\":2},\"Name\":\"Min(dim_well_current.Well_ID)\",\"NativeReferenceName\":\"Count of Well_ID\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Well_ID\"}},\"Function\":2}}}]},\"columnProperties\":{\"Min(dim_well_current.Well_ID)\":{\"displayName\":\"Total Wells\",\"formatString\":\"0\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"foreground\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":6,\"Percent\":0.4}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 107.49,
+          "width": 155.45,
+          "x": 0.00,
+          "y": 54.57,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"a43c2e70239c00389057\",\"layouts\":[{\"id\":0,\"position\":{\"x\":175.297157622739,\"y\":54.57364341085271,\"z\":1000,\"width\":155.45219638242892,\"height\":107.49354005167957,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"Min(dim_well_current.Well_ID)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_well_current\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Well_ID\"}},\"Function\":2},\"Name\":\"Min(dim_well_current.Well_ID)\",\"NativeReferenceName\":\"Active Wells\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Well_ID\"}},\"Function\":2}}}]},\"columnProperties\":{\"Min(dim_well_current.Well_ID)\":{\"displayName\":\"Active Wells\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 107.49,
+          "width": 155.45,
+          "x": 175.30,
+          "y": 54.57,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"aee77dfa55e0165bd090\",\"layouts\":[{\"id\":0,\"position\":{\"x\":618.5,\"y\":36,\"width\":211,\"height\":150,\"z\":5000,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"Sum(fct_monthly_basin_summary.basin_operating_margin)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fct_monthly_basin_summary\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"basin_operating_margin\"}},\"Function\":0},\"Name\":\"Sum(fct_monthly_basin_summary.basin_operating_margin)\",\"NativeReferenceName\":\"Operating_margin\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"basin_operating_margin\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(fct_monthly_basin_summary.basin_operating_margin)\":{\"displayName\":\"Operating_margin\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 150.00,
+          "width": 211.00,
+          "x": 618.50,
+          "y": 36.00,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"e0d53c03e09aed3b1b5e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":364.1152263374486,\"y\":215.30864197530863,\"z\":7000,\"width\":345.0205761316872,\"height\":214.65020576131687,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"fct_monthly_well_performance.well_tier\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(fct_monthly_well_performance.total_oil_bopd)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fct_monthly_well_performance\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"well_tier\"},\"Name\":\"fct_monthly_well_performance.well_tier\",\"NativeReferenceName\":\"well_tier\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"total_oil_bopd\"}},\"Function\":0},\"Name\":\"Sum(fct_monthly_well_performance.total_oil_bopd)\",\"NativeReferenceName\":\"Sum of total_oil_bopd\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"total_oil_bopd\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 214.65,
+          "width": 345.02,
+          "x": 364.12,
+          "y": 215.31,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"e3bfca38892ccd45e5e4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":371.7365269461078,\"y\":40.23952095808384,\"z\":3000,\"width\":210.77844311377245,\"height\":141.79640718562874,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"Sum(fct_monthly_production.total_net_revenue)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fct_monthly_production\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"total_net_revenue\"}},\"Function\":0},\"Name\":\"Sum(fct_monthly_production.total_net_revenue)\",\"NativeReferenceName\":\"Sum of total_net_revenue\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"total_net_revenue\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 141.80,
+          "width": 210.78,
+          "x": 371.74,
+          "y": 40.24,
+          "z": 3000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ],
+  "theme": "CopilotDefault"
+}
