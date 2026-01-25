@@ -12,9 +12,6 @@ jobs:
       - name: Checkout GitHub repo
         uses: actions/checkout@v3
 
-      - name: Install Git
-        run: sudo apt-get install git -y
-
       - name: Clone Azure DevOps Repo
         run: |
           echo "Cloning Azure DevOps repo..."
@@ -22,26 +19,12 @@ jobs:
 
       - name: Push to GitHub
         run: |
-          echo "Preparing to push all content to GitHub..."
           cd azure-devops
 
-          # Ensure we are on main branch
-          if git show-ref --quiet refs/heads/main; then
-            git checkout main
-          elif git show-ref --quiet refs/heads/master; then
-            git checkout master
-          else
-            echo "❌ ERROR: No main or master branch found!"
+          echo "Checking out main branch..."
+          git checkout main || {
+            echo "main branch not found!"
             exit 1
-          fi
+          }
 
-          echo "Adding GitHub remote..."
-          git remote add github https://github.com/sandhya-datatech/OilGas-DataEngineering.git
-
-          echo "Pushing branches..."
-          git push github --all --force
-
-          echo "Pushing tags..."
-          git push github --tags --force
-
-          echo "🎉 Sync complete!"
+          echo "Adding Git
