@@ -1,3 +1,4 @@
+```yaml name=.github/workflows/azure-sync.yml url=https://github.com/sandhya-datatech/OilGas-DataEngineering/blob/5576a99/.github/workflows/azure-sync.yml
 # Sync Azure DevOps repository to this GitHub repository
 # - Uses AZURE_DEVOPS_PAT (required) to authenticate to dev.azure.com
 # - Uses the built-in GITHUB_TOKEN by default to push to GitHub (or GITHUB_PAT secret if you prefer)
@@ -30,17 +31,16 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     env:
-      AZDO_ORG: dev.azure.com
-      AZDO_ORG_NAME: fabric0316
-      AZDO_REPO_PATH: OilandGas/_git/OilGas-DataEngineering
       AZDO_CLONE_URL: https://dev.azure.com/fabric0316/OilandGas/_git/OilGas-DataEngineering
       GITHUB_REPOSITORY: ${{ github.repository }}
+      PUSH_MODE: ${{ github.event.inputs.push_mode || 'mirror' }}
+      SELECTIVE_BRANCHES: ${{ github.event.inputs.branches || 'main' }}
 
     steps:
       - name: Checkout (workspace)
         uses: actions/checkout@v3
 
-      - name: Validate secrets and prepare .netrc for Azure DevOps
+      - name: Validate AZURE_DEVOPS_PAT and write .netrc
         env:
           AZURE_USER: fabric0316
           AZURE_PAT: ${{ secrets.AZURE_DEVOPS_PAT }}
@@ -50,24 +50,19 @@ jobs:
             echo "ERROR: AZURE_DEVOPS_PAT secret is not set" >&2
             exit 1
           fi
-          # Create .netrc for dev.azure.com so git can authenticate without embedding token in URL
           cat > ~/.netrc <<EOF
 machine dev.azure.com
 login ${AZURE_USER}
 password ${AZURE_PAT}
 EOF
           chmod 600 ~/.netrc
-          echo ".netrc written (hidden)."
+          echo ".netrc written."
 
-      - name: Install git (ensure available)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y git
-
-      - name: Verify Azure DevOps access (quick)
+      - name: Verify Azure DevOps access
         run: |
           set -euo pipefail
           echo "Verifying access to Azure DevOps with git ls-remote..."
+          git --version
           git ls-remote "${AZDO_CLONE_URL}" -q
           echo "ls-remote succeeded."
 
@@ -77,7 +72,7 @@ EOF
           rm -rf azure-devops.git
           echo "Cloning (mirror) ${AZDO_CLONE_URL} ..."
           git clone --mirror "${AZDO_CLONE_URL}" azure-devops.git
-          echo "Clone complete. Size:"
+          echo "Clone complete."
           du -sh azure-devops.git || true
 
       - name: Configure GitHub auth token (use GITHUB_PAT if set, otherwise GITHUB_TOKEN)
@@ -86,15 +81,14 @@ EOF
           GITHUB_PAT_ENV: ${{ secrets.GITHUB_PAT }}
         run: |
           set -euo pipefail
-          # Choose token: prefer GITHUB_PAT if provided
           if [ -n "${GITHUB_PAT_ENV:-}" ]; then
             TOKEN="${GITHUB_PAT_ENV}"
-            echo "Using GITHUB_PAT secret for push authentication."
+            echo "Using GITHUB_PAT for push authentication."
           else
             TOKEN="${GITHUB_TOKEN_ENV}"
             echo "Using built-in GITHUB_TOKEN for push authentication."
           fi
-          # Export a URL safe for git remote (x-access-token username)
+          # write push url to environment for next step; secret values are redacted in logs
           echo "GITHUB_PUSH_URL=https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" >> $GITHUB_ENV
 
       - name: Push to GitHub (mirror or selective)
@@ -104,23 +98,19 @@ EOF
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
 
-          echo "Adding github remote using token-authenticated URL..."
           git remote remove github || true
           git remote add github "${GITHUB_PUSH_URL}"
 
-          if [ "${{ github.event.inputs.push_mode || 'mirror' }}" = "branches" ]; then
-            echo "Selective push mode: pushing branches specified in input"
-            BRANCHES="${{ github.event.inputs.branches || 'main' }}"
-            IFS=',' read -r -a arr <<< "$BRANCHES"
+          if [ "${PUSH_MODE}" = "branches" ]; then
+            echo "Selective push mode: pushing branches specified in input: ${SELECTIVE_BRANCHES}"
+            IFS=',' read -r -a arr <<< "${SELECTIVE_BRANCHES}"
             for b in "${arr[@]}"; do
               b_trimmed="$(echo "$b" | xargs)"
               echo "Pushing branch: refs/heads/${b_trimmed}"
-              # Create refspec to push branch (force only if necessary)
               git push github "refs/heads/${b_trimmed}:refs/heads/${b_trimmed}" --no-verify
             done
           else
             echo "Mirror push mode: pushing all refs (branches & tags) to GitHub. This will make GitHub match Azure DevOps exactly."
-            # --mirror will update/delete refs on the remote to exactly match the local mirror
             git push github --mirror --no-verify
           fi
           echo "Push to GitHub finished."
@@ -134,3 +124,4 @@ EOF
 
       - name: Done
         run: echo "Sync job completed."
+```
